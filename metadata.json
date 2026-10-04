@@ -1,0 +1,6 @@
+{
+  "name": "REX CIHE - University Assistant",
+  "description": "Institutional RAG-based university AI assistant for Crown Institute of Higher Education (CIHE).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

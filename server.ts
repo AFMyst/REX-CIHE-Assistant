@@ -15,6 +15,7 @@ const app = express();
 const PORT = Number(process.env.PORT) || 3000;
 
 app.use(express.json({ limit: '25mb' }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Initialize Google GenAI client
 let ai: GoogleGenAI | null = null;
@@ -399,6 +400,19 @@ app.get('/api/rag/documents', (_req: Request, res: Response) => {
 // API: Policy Gaps
 app.get('/api/rag/gaps', (_req: Request, res: Response) => {
   res.json({ gaps: POLICY_GAPS });
+});
+
+// API: Download Project Zip
+app.get('/api/download-zip', (_req: Request, res: Response) => {
+  const zipFilePath = path.join(__dirname, 'public', 'rex-cihe-copilot-project.zip');
+  res.download(zipFilePath, 'rex-cihe-copilot-project.zip', (err) => {
+    if (err) {
+      console.error('Error downloading zip:', err);
+      if (!res.headersSent) {
+        res.status(500).send('Could not download zip file.');
+      }
+    }
+  });
 });
 
 // Dev vs Prod Vite Mounting

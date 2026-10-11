@@ -463,6 +463,17 @@ export default function App() {
               <span className="text-[#000a1e] font-semibold">TEQSA PRV12014</span>
             </div>
 
+            {/* Download Project ZIP */}
+            <a
+              href="/api/download-zip"
+              download="rex-cihe-copilot-project.zip"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#002147] hover:bg-[#144694] text-white text-xs font-semibold shadow-sm transition-all cursor-pointer"
+              title="Download complete project ZIP source code"
+            >
+              <span className="material-symbols-outlined text-[17px]">folder_zip</span>
+              <span className="hidden sm:inline">Download ZIP</span>
+            </a>
+
             {/* Role Switcher */}
             <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#eff4ff] border border-[#c4c6cf]/30 text-[#000a1e] text-xs">
               <span className="text-[#74777f]">Role:</span>
@@ -539,6 +550,15 @@ export default function App() {
                     <span>{item.label}</span>
                   </button>
                 ))}
+
+                <a
+                  href="/api/download-zip"
+                  download="rex-cihe-copilot-project.zip"
+                  className="w-full mt-4 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-[#002147] hover:bg-[#144694] text-white text-xs font-semibold shadow-sm transition-all"
+                >
+                  <span className="material-symbols-outlined text-[18px]">folder_zip</span>
+                  <span>Download Project ZIP</span>
+                </a>
               </div>
             </div>
           </div>
